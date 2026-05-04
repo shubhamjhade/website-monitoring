@@ -55,29 +55,29 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[1,2,3].map(i => <div key={i} className="skeleton h-40 rounded-2xl"></div>)}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+          {[1,2,3].map(i => <div key={i} className="skeleton h-28 sm:h-40 rounded-2xl"></div>)}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="page-enter max-w-7xl mx-auto px-6 py-8">
+    <div className="page-enter max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-2xl font-bold">Dashboard</h1>
-          <p className="text-gray-500 text-sm mt-1">Real-time infrastructure overview</p>
+          <h1 className="text-xl sm:text-2xl font-bold">Dashboard</h1>
+          <p className="text-gray-500 text-xs sm:text-sm mt-1">Real-time infrastructure overview</p>
         </div>
-        <button onClick={() => setShowAddModal(true)} className="btn-primary">
+        <button onClick={() => setShowAddModal(true)} className="btn-primary w-full sm:w-auto">
           + Add Monitor
         </button>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
         <StatCard label="Total" value={monitors.length} color="#7c3aed" />
         <StatCard label="Online" value={upCount} color="#10b981" />
         <StatCard label="Down" value={downCount} color="#ef4444" />
@@ -86,21 +86,20 @@ export default function DashboardPage() {
 
       {/* Monitor Grid */}
       {monitors.length === 0 ? (
-        <div className="glass-card p-16 text-center">
-          <p className="text-5xl mb-4">📡</p>
-          <h3 className="text-xl font-bold mb-2">No monitors yet</h3>
-          <p className="text-gray-500 mb-6">Add your first website to start monitoring</p>
+        <div className="glass-card p-8 sm:p-16 text-center">
+          <p className="text-4xl sm:text-5xl mb-4">📡</p>
+          <h3 className="text-lg sm:text-xl font-bold mb-2">No monitors yet</h3>
+          <p className="text-gray-500 text-sm mb-6">Add your first website to start monitoring</p>
           <button onClick={() => setShowAddModal(true)} className="btn-primary">+ Add Your First Monitor</button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {monitors.map(m => (
             <MonitorCard key={m._id} monitor={m} onDelete={handleDelete} onViewReport={handleViewReport} />
           ))}
         </div>
       )}
 
-      {/* Modals */}
       <AddMonitorModal isOpen={showAddModal} onClose={() => setShowAddModal(false)} onAdd={handleAdd} />
       <AIReportModal isOpen={showAIModal} onClose={() => setShowAIModal(false)} report={aiReport} loading={aiLoading} />
     </div>
@@ -109,9 +108,9 @@ export default function DashboardPage() {
 
 function StatCard({ label, value, color }) {
   return (
-    <div className="glass-card p-5 text-center">
-      <p className="text-xs text-gray-500 mb-1 font-medium">{label}</p>
-      <p className="text-2xl font-bold font-mono" style={{ color }}>{value}</p>
+    <div className="glass-card p-3 sm:p-5 text-center">
+      <p className="text-[10px] sm:text-xs text-gray-500 mb-1 font-medium">{label}</p>
+      <p className="text-xl sm:text-2xl font-bold font-mono" style={{ color }}>{value}</p>
     </div>
   );
 }

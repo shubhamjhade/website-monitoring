@@ -44,16 +44,16 @@ export default function LandingPage() {
         <Hero3D />
 
         {/* Hero Content Overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10 pointer-events-none">
-          <div className="pointer-events-auto max-w-2xl">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 z-10 pointer-events-none">
+          <div className="pointer-events-auto max-w-2xl w-full">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-6"
                  style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.2)' }}>
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-              <span className="text-xs font-medium text-gray-400">AI-Powered Monitoring</span>
+              <span className="text-[10px] sm:text-xs font-medium text-gray-400">AI-Powered Monitoring</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-4">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tight leading-tight mb-3 sm:mb-4">
               Monitor your sites
               <br />
               <span style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
@@ -61,20 +61,20 @@ export default function LandingPage() {
               </span>
             </h1>
 
-            <p className="text-gray-500 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-5 sm:mb-8 max-w-lg mx-auto leading-relaxed px-2">
               Real-time website monitoring with Gemini AI diagnostics. 
               Get instant insights when things go wrong.
             </p>
 
             {/* Quick Check Form */}
-            <form onSubmit={handleQuickCheck} className="flex gap-3 max-w-xl mx-auto mb-6">
+            <form onSubmit={handleQuickCheck} className="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-xl mx-auto mb-4 sm:mb-6 px-2 sm:px-0">
               <input
                 type="text"
                 value={url}
                 onChange={e => setUrl(e.target.value)}
                 placeholder="Enter website URL to analyze..."
-                className="form-input flex-1"
-                style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem' }}
+                className="form-input flex-1 text-sm sm:text-base"
+                style={{ fontFamily: 'var(--font-mono)' }}
               />
               <button
                 type="submit"
@@ -90,7 +90,7 @@ export default function LandingPage() {
             </form>
 
             {/* CTA Links */}
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               {isAuthenticated ? (
                 <button onClick={() => navigate('/dashboard')} className="btn-primary">
                   Go to Dashboard →
@@ -112,21 +112,23 @@ export default function LandingPage() {
 
       {/* Quick Check Results */}
       {result && (
-        <section className="max-w-4xl mx-auto px-6 -mt-8 mb-16 relative z-20">
-          <div className="glass-card p-6">
+        <section className="max-w-4xl mx-auto px-3 sm:px-6 -mt-4 sm:-mt-8 mb-10 sm:mb-16 relative z-20">
+          <div className="glass-card p-4 sm:p-6">
             {/* Header */}
-            <div className="flex items-center gap-3 mb-6">
-              <div
-                className="w-4 h-4 rounded-full flex-shrink-0"
-                style={{
-                  background: result.status === 'UP' ? '#10b981' : '#ef4444',
-                  boxShadow: `0 0 12px ${result.status === 'UP' ? '#10b98160' : '#ef444460'}`
-                }}
-              ></div>
-              <h3 className="font-bold text-lg">
-                {result.status === 'UP' ? '✅ Website is Online' : '❌ Website is Down'}
-              </h3>
-              <span className="ml-auto text-sm font-mono text-gray-500">{result.url}</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex-shrink-0"
+                  style={{
+                    background: result.status === 'UP' ? '#10b981' : '#ef4444',
+                    boxShadow: `0 0 12px ${result.status === 'UP' ? '#10b98160' : '#ef444460'}`
+                  }}
+                ></div>
+                <h3 className="font-bold text-base sm:text-lg">
+                  {result.status === 'UP' ? '✅ Website is Online' : '❌ Website is Down'}
+                </h3>
+              </div>
+              <span className="text-xs sm:text-sm font-mono text-gray-500 break-all sm:ml-auto">{result.url}</span>
             </div>
 
             {/* Details Grid */}
@@ -200,13 +202,13 @@ export default function LandingPage() {
       )}
 
       {/* Features Section */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
             Everything you need to{' '}
             <span style={{ color: '#7c3aed' }}>stay online</span>
           </h2>
-          <p className="text-gray-500 max-w-lg mx-auto">
+          <p className="text-gray-500 max-w-lg mx-auto text-sm sm:text-base">
             Powerful monitoring tools backed by AI intelligence
           </p>
         </div>
@@ -234,8 +236,8 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/[0.04] py-8 text-center">
-        <p className="text-sm text-gray-600">
+      <footer className="border-t border-white/[0.04] py-6 sm:py-8 text-center px-4">
+        <p className="text-xs sm:text-sm text-gray-600">
           Built with ❤️ by Shubham Jhade · Powered by Gemini AI
         </p>
       </footer>
@@ -254,7 +256,7 @@ function DetailBox({ label, value, color }) {
 
 function FeatureCard({ icon, title, desc, gradient }) {
   return (
-    <div className="glass-card tilt-card p-8 text-center">
+    <div className="glass-card tilt-card p-5 sm:p-8 text-center">
       <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5"
            style={{ background: gradient }}>
         {icon}
