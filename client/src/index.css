@@ -161,20 +161,21 @@ body {
    ========================================== */
 
 .hero-3d-container {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 500px;
+  height: 100%;
   perspective: 1200px;
-  overflow: hidden;
 }
 
 /* 3D Perspective Grid Floor */
 .grid-floor {
   position: absolute;
-  bottom: -30%;
-  left: -20%;
-  width: 140%;
-  height: 80%;
+  bottom: -40%;
+  left: -50%;
+  width: 200%;
+  height: 100%;
   background-image: 
     linear-gradient(rgba(124, 58, 237, 0.12) 1px, transparent 1px),
     linear-gradient(90deg, rgba(124, 58, 237, 0.12) 1px, transparent 1px);
@@ -708,10 +709,6 @@ body {
     display: none;
   }
 
-  .hero-3d-container {
-    height: 320px;
-  }
-
   .globe-wrapper {
     width: 180px;
     height: 180px;
@@ -755,10 +752,6 @@ body {
 
 /* --- Small Mobile: 480px --- */
 @media (max-width: 480px) {
-  .hero-3d-container {
-    height: 260px;
-  }
-
   .globe-wrapper {
     width: 140px;
     height: 140px;

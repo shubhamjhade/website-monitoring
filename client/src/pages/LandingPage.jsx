@@ -40,12 +40,14 @@ export default function LandingPage() {
   return (
     <div className="page-enter">
       {/* Hero Section with 3D */}
-      <section className="relative">
-        <Hero3D />
+      <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center py-20 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
+          <Hero3D />
+        </div>
 
         {/* Hero Content Overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 z-10 pointer-events-none">
-          <div className="pointer-events-auto max-w-2xl w-full">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full pointer-events-none">
+          <div className="pointer-events-auto max-w-2xl w-full mt-10 md:mt-0">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-6"
                  style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.2)' }}>
@@ -203,12 +205,12 @@ export default function LandingPage() {
 
       {/* Features Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
-        <div className="text-center mb-10 sm:mb-16">
+        <div className="text-center mb-10 sm:mb-16 relative z-10">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
             Everything you need to{' '}
             <span style={{ color: '#7c3aed' }}>stay online</span>
           </h2>
-          <p className="text-gray-500 max-w-lg mx-auto text-sm sm:text-base">
+          <p className="text-gray-500 max-w-lg mx-auto text-sm sm:text-base text-center">
             Powerful monitoring tools backed by AI intelligence
           </p>
         </div>
