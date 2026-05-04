@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build-client": "cd client && npm install && npm run build",
-    "postinstall": "cd client && npm install && npm run build"
+    "build-client": "cd client && npm install && npm run build"
   },
   "keywords": ["website", "monitoring", "ai", "3d"],
   "author": "Shubham Jhade",
