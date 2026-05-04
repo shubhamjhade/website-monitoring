@@ -40,14 +40,13 @@ export default function LandingPage() {
   return (
     <div className="page-enter">
       {/* Hero Section with 3D */}
-      <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center py-20 overflow-hidden">
+      <section className="relative flex items-center justify-center min-h-[calc(100vh-64px)] pt-12 pb-24 overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
           <Hero3D />
         </div>
 
         {/* Hero Content Overlay */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full pointer-events-none">
-          <div className="pointer-events-auto max-w-2xl w-full mt-10 md:mt-0">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-6"
                  style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.2)' }}>
@@ -69,19 +68,19 @@ export default function LandingPage() {
             </p>
 
             {/* Quick Check Form */}
-            <form onSubmit={handleQuickCheck} className="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-xl mx-auto mb-4 sm:mb-6 px-2 sm:px-0">
+            <form onSubmit={handleQuickCheck} className="flex flex-col sm:flex-row gap-3 w-full max-w-lg mx-auto mb-6">
               <input
                 type="text"
                 value={url}
                 onChange={e => setUrl(e.target.value)}
                 placeholder="Enter website URL to analyze..."
-                className="form-input flex-1 text-sm sm:text-base"
+                className="form-input flex-1 text-base h-12"
                 style={{ fontFamily: 'var(--font-mono)' }}
               />
               <button
                 type="submit"
                 disabled={checking}
-                className="btn-primary flex-shrink-0 !px-6"
+                className="btn-primary flex-shrink-0 h-12 px-8"
               >
                 {checking ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -92,7 +91,7 @@ export default function LandingPage() {
             </form>
 
             {/* CTA Links */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
               {isAuthenticated ? (
                 <button onClick={() => navigate('/dashboard')} className="btn-primary">
                   Go to Dashboard →
@@ -107,7 +106,6 @@ export default function LandingPage() {
                   </Link>
                 </>
               )}
-            </div>
           </div>
         </div>
       </section>
@@ -204,18 +202,18 @@ export default function LandingPage() {
       )}
 
       {/* Features Section */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
-        <div className="text-center mb-10 sm:mb-16 relative z-10">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-24 relative z-20">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Everything you need to{' '}
             <span style={{ color: '#7c3aed' }}>stay online</span>
           </h2>
-          <p className="text-gray-500 max-w-lg mx-auto text-sm sm:text-base text-center">
+          <p className="text-gray-400 text-base sm:text-lg text-center mx-auto max-w-2xl">
             Powerful monitoring tools backed by AI intelligence
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           <FeatureCard
             icon="⚡"
             title="Real-time Monitoring"
@@ -258,13 +256,13 @@ function DetailBox({ label, value, color }) {
 
 function FeatureCard({ icon, title, desc, gradient }) {
   return (
-    <div className="glass-card tilt-card p-5 sm:p-8 text-center">
-      <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5"
+    <div className="glass-card tilt-card p-6 sm:p-8 text-center h-full flex flex-col items-center">
+      <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6 flex-shrink-0"
            style={{ background: gradient }}>
         {icon}
       </div>
-      <h3 className="text-lg font-bold mb-3">{title}</h3>
-      <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+      <h3 className="text-xl font-bold mb-4">{title}</h3>
+      <p className="text-base text-gray-400 leading-relaxed flex-1">{desc}</p>
     </div>
   );
 }

@@ -182,8 +182,8 @@ body {
   background-size: 60px 60px;
   transform: rotateX(65deg);
   animation: grid-scroll 20s linear infinite;
-  mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, transparent 60%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, transparent 60%);
 }
 
 @keyframes grid-scroll {
