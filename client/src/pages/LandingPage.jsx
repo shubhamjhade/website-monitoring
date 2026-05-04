@@ -39,14 +39,15 @@ export default function LandingPage() {
 
   return (
     <div className="page-enter">
-      {/* Hero Section with 3D */}
-      <section className="relative flex items-center justify-center min-h-[calc(100vh-64px)] pt-12 pb-24 overflow-hidden">
-        <div className="absolute inset-0 w-full h-full">
+      {/* Hero Section */}
+      <section className="relative min-h-[calc(100vh-64px)] flex flex-col justify-center pt-28 sm:pt-32 pb-24 sm:pb-32 overflow-hidden">
+        {/* Background 3D Canvas */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none">
           <Hero3D />
         </div>
 
-        {/* Hero Content Overlay */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto">
+        {/* Hero Content */}
+        <div className="relative z-10 px-4 sm:px-6 w-full max-w-3xl mx-auto flex flex-col items-center text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-6"
                  style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.2)' }}>
